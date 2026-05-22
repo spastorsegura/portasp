@@ -1,7 +1,13 @@
 "use client";
 
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Package, ArrowRight, Star, Download } from 'lucide-react';
+import { ExternalLink, Package, Star, Download } from 'lucide-react';
+
+interface PackageStat {
+    downloads: string;
+    stars: string;
+}
 
 const OpenSource = () => {
     const packages = [
@@ -10,23 +16,120 @@ const OpenSource = () => {
             desc: "A powerful core logic library for QR layout generation, handling the complex calculations for sizing and positioning.",
             url: "https://www.npmjs.com/package/qrlayout-core",
             tags: ["TypeScript", "QR Code", "Layout Engine"],
-            stats: { downloads: "1k+", stars: "15+" }
+            created: "2025-12-31",
+            repo: "shashi089/qr-code-layout-generate-tool",
+            defaultStats: { downloads: "2,366", stars: "29" }
         },
         {
             name: "qrlayout-ui",
             desc: "Framework-agnostic UI component library for qrlayout-core. Works seamlessly with React, Vue, Angular, or vanilla JavaScript.",
             url: "https://www.npmjs.com/package/qrlayout-ui",
             tags: ["JavaScript", "Framework Agnostic", "UI Components"],
-            stats: { downloads: "800+", stars: "15+" }
+            created: "2026-01-08",
+            repo: "shashi089/qr-code-layout-generate-tool",
+            defaultStats: { downloads: "1,474", stars: "29" }
         },
         {
             name: "env-drift-check",
             desc: "A CLI tool to detect drift between .env.example / .env.template and your actual .env files, ensuring environment consistency.",
             url: "https://www.npmjs.com/package/env-drift-check",
             tags: ["CLI", "DevOps", "Config"],
-            stats: { downloads: "200+", stars: "5+" }
+            created: "2026-01-27",
+            repo: "shashi089/env-drift-check",
+            defaultStats: { downloads: "1,338", stars: "14" }
         }
     ];
+
+    const [stats, setStats] = useState<Record<string, PackageStat>>({
+        "qrlayout-core": { downloads: "2,366", stars: "29" },
+        "qrlayout-ui": { downloads: "1,474", stars: "29" },
+        "env-drift-check": { downloads: "1,338", stars: "14" }
+    });
+
+    useEffect(() => {
+        const fetchStats = async () => {
+            const today = new Date().toISOString().split('T')[0];
+
+            const getChunks = (startDateStr: string, endDateStr: string) => {
+                const start = new Date(startDateStr);
+                const end = new Date(endDateStr);
+                const chunks = [];
+                let currentStart = new Date(start);
+                while (currentStart < end) {
+                    const currentEnd = new Date(currentStart);
+                    currentEnd.setFullYear(currentEnd.getFullYear() + 1);
+                    if (currentEnd > end) {
+                        chunks.push({
+                            start: currentStart.toISOString().split('T')[0],
+                            end: end.toISOString().split('T')[0]
+                        });
+                        break;
+                    } else {
+                        chunks.push({
+                            start: currentStart.toISOString().split('T')[0],
+                            end: currentEnd.toISOString().split('T')[0]
+                        });
+                        currentStart = new Date(currentEnd);
+                        currentStart.setDate(currentStart.getDate() + 1);
+                    }
+                }
+                return chunks;
+            };
+
+            const updatedStats = { ...stats };
+            let hasChanges = false;
+
+            // Fetch GitHub stars in parallel
+            const repoStarsMap: Record<string, string> = {};
+            const uniqueRepos = Array.from(new Set(packages.map(pkg => pkg.repo)));
+            await Promise.all(uniqueRepos.map(async (repo) => {
+                try {
+                    const response = await fetch(`https://api.github.com/repos/${repo}`);
+                    const data = await response.json();
+                    if (data.stargazers_count !== undefined) {
+                        repoStarsMap[repo] = String(data.stargazers_count);
+                    }
+                } catch (error) {
+                    console.error(`Error fetching GitHub stars for ${repo}:`, error);
+                }
+            }));
+
+            // Fetch NPM downloads in parallel
+            await Promise.all(packages.map(async (pkg) => {
+                try {
+                    const chunks = getChunks(pkg.created, today);
+                    const results = await Promise.all(chunks.map(chunk => 
+                        fetch(`https://api.npmjs.org/downloads/point/${chunk.start}:${chunk.end}/${pkg.name}`)
+                            .then(r => r.json())
+                    ));
+                    const totalDownloads = results.reduce((sum, r) => sum + (r.downloads || 0), 0);
+                    
+                    let newDownloads = stats[pkg.name]?.downloads;
+                    if (totalDownloads > 0) {
+                        newDownloads = new Intl.NumberFormat().format(totalDownloads);
+                    }
+
+                    const fetchedStars = repoStarsMap[pkg.repo] || stats[pkg.name]?.stars;
+
+                    if (stats[pkg.name]?.downloads !== newDownloads || stats[pkg.name]?.stars !== fetchedStars) {
+                        updatedStats[pkg.name] = {
+                            downloads: newDownloads,
+                            stars: fetchedStars
+                        };
+                        hasChanges = true;
+                    }
+                } catch (error) {
+                    console.error(`Error fetching stats for ${pkg.name}:`, error);
+                }
+            }));
+
+            if (hasChanges) {
+                setStats(updatedStats);
+            }
+        };
+
+        fetchStats();
+    }, []);
 
     return (
         <section id="opensource" aria-label="Open Source Contributions" className="py-20 relative overflow-hidden">
@@ -93,10 +196,10 @@ const OpenSource = () => {
 
                                 <div className="flex items-center gap-4 text-xs text-slate-500 pt-4 border-t border-slate-800 font-medium">
                                     <span className="flex items-center gap-1">
-                                        <Download className="w-3 h-3" /> {pkg.stats.downloads}
+                                        <Download className="w-3 h-3" /> {(stats[pkg.name] || pkg.defaultStats).downloads}
                                     </span>
                                     <span className="flex items-center gap-1 group-hover:text-yellow-500/80 transition-colors">
-                                        <Star className="w-3 h-3" /> {pkg.stats.stars}
+                                        <Star className="w-3 h-3" /> {(stats[pkg.name] || pkg.defaultStats).stars}
                                     </span>
                                 </div>
                             </div>

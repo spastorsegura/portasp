@@ -31,7 +31,7 @@ As a **Software Engineer II** at Cymbeline Innovation Pvt. Ltd, I lead frontend 
 ## ✨ Standout Features
 
 - **🤖 AI Portfolio Assistant**: A custom-built chatbot that answers professional inquiries about my background, skills, and experience.
-- **📦 Open Source Contributions**: Published NPM packages including `qrlayout-core`, `qrlayout-ui`, and `env-drift-check` with 2k+ total downloads.
+- **📦 Open Source Contributions**: Published NPM packages including `qrlayout-core`, `qrlayout-ui`, and `env-drift-check` with 5,000+ total downloads.
 - **⚡ Blazing Fast Performance**: Built using Next.js 16 App Router and optimized for high Core Web Vitals scores.
 - **🔍 Deep SEO Integration**: Implemented JSON-LD structured data, metadata for social sharing (OG/Twitter cards), sitemap, and semantic HTML for search engine discoverability.
 - **💎 Premium UI/UX**: Features glassmorphism, responsive timelines, interactive project galleries, and smooth Framer Motion animations.
@@ -58,11 +58,11 @@ I actively contribute to the developer community through open-source NPM package
 
 | Package | Description | Downloads | NPM Link |
 | :--- | :--- | :--- | :--- |
-| **qrlayout-core** | Core logic library for QR layout generation with TypeScript | 1k+ | [View Package](https://www.npmjs.com/package/qrlayout-core) |
-| **qrlayout-ui** | Framework-agnostic UI components for QR layout designer | 800+ | [View Package](https://www.npmjs.com/package/qrlayout-ui) |
-| **env-drift-check** | CLI tool to detect drift between .env files | 200+ | [View Package](https://www.npmjs.com/package/env-drift-check) |
+| **qrlayout-core** | Core logic library for QR layout generation with TypeScript | 2,300+ | [View Package](https://www.npmjs.com/package/qrlayout-core) |
+| **qrlayout-ui** | Framework-agnostic UI components for QR layout designer | 1,400+ | [View Package](https://www.npmjs.com/package/qrlayout-ui) |
+| **env-drift-check** | CLI tool to detect drift between .env files | 1,300+ | [View Package](https://www.npmjs.com/package/env-drift-check) |
 
-**Total Downloads**: 2k+ across all packages  
+**Total Downloads**: 5,000+ across all packages  
 
 
 ---

@@ -168,7 +168,7 @@ export const projectsSchema = {
                 description:
                     "Open-source NPM suite: qrlayout-core (logic engine) and qrlayout-ui (framework-agnostic UI components) for designing and printing QR labels.",
                 url: "https://qr-layout-designer.netlify.app/",
-                codeRepository: "https://github.com/shashi089",
+                codeRepository: "https://github.com/shashi089/qr-code-layout-generate-tool",
                 creator: { "@id": `${BASE_URL}/#person` },
                 keywords: [
                     "Open Source",
