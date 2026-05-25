@@ -1,50 +1,47 @@
 @import "tailwindcss";
 
 @theme {
+  /* Main Colors (SP Projects - updated palette) */
+  --color-primary: #052f40; /* deep blue */
+  --color-secondary: #79c7d9; /* light cyan */
 
-    /* Main Colors from SP Projects */
-    --color-primary: #8b5cf6;
-    /* violet */
+  /* Accents */
+  --color-accent: #f2921d; /* orange primary */
+  --color-accent-hover: #f2762e;
+  --color-danger: #d92b2b;
 
-    --color-secondary: #3b82f6;
-    /* blue */
+  /* Backgrounds */
+  --color-dark: #052f40; /* main background */
+  --color-surface: #06384d; /* cards/nav (ligeramente más claro) */
+  --color-surface-light: #0a4a63; /* hover surfaces */
 
-    /* Backgrounds */
-    --color-dark: #020617;
-    /* main bg */
+  /* Text */
+  --color-text: #eaf6fa;
+  --color-text-muted: #a9c7d1;
 
-    --color-surface: #0f172a;
-    /* cards/nav */
+  /* Borders */
+  --color-border: #0e5a73;
 
-    --color-surface-light: #111827;
-    /* hover */
-
-    /* Text */
-    --color-text: #f8fafc;
-    --color-text-muted: #94a3b8;
-
-    /* Borders */
-    --color-border: #1e293b;
+  --font-sans: "Urbanist", ui-sans-serif, system-ui;
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-    html {
-        scroll-behavior: smooth;
-    }
-
-    body {
-        @apply bg-slate-950 text-slate-100 font-sans antialiased selection:bg-violet-500/30;
-    }
+  body {
+    @apply bg-[#052F40] text-[#EAF6FA] font-sans antialiased selection:bg-[#79C7D9]/30;
+  }
 }
 
 @layer utilities {
+  .glass {
+    @apply backdrop-blur-md bg-[#06384D]/50 border border-[#0E5A73]/50;
+  }
 
-    .glass {
-        @apply backdrop-blur-md bg-slate-900/50 border border-slate-800/50;
-    }
-
-    .text-gradient {
-        @apply bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-blue-400;
-    }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#79C7D9] to-[#F2921D];
+  }
 }
+

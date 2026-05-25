@@ -30,9 +30,15 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand */}
           <div className="flex items-center gap-2">
-            <Code2 className="text-violet-500 w-5 h-5" aria-hidden="true" />
-            <span className="font-bold text-slate-300">
-              SergioPastor<span className="text-violet-500">.</span>
+            <img
+              src="/favicon.svg"
+              alt="Logo"
+              className="w-8 h-8 object-contain"
+            />
+
+            <span className="font-bold text-[#EAF6FA] tracking-tight">
+              SergioPastor
+              <span className="text-[#F2921D]">.</span>
             </span>
           </div>
 
@@ -46,7 +52,7 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer me"
                     aria-label={link.label}
-                    className="flex items-center gap-1.5 text-slate-500 hover:text-violet-400 transition-colors text-sm"
+                    className="flex items-center gap-1.5 text-[#A9C7D1] hover:text-[#79C7D9] transition-colors text-sm"
                   >
                     {link.icon}
                     <span>{link.text}</span>

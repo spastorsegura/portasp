@@ -8,61 +8,87 @@ const Contact = () => {
     <section
       id="contact"
       aria-label="Contact Information"
-      className="py-20 relative overflow-hidden bg-slate-900/50"
+      className="py-20 relative overflow-hidden bg-[#052F40]/50"
     >
       {/* Background Decor */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-violet-600/10 rounded-full blur-[100px] -z-10" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#79C7D9]/10 rounded-full blur-[100px] -z-10" />
 
       <div className="container mx-auto px-4 md:px-8 text-center">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="max-w-2xl mx-auto mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Contacto</h2>
-          <p className="text-slate-400 text-lg">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#EAF6FA]">
+            Contacto
+          </h2>
+
+          <p className="text-[#A9C7D1] text-lg">
             Actualmente estoy disponible para nuevas oportunidades. Ya sea que
             tengas una consulta o simplemente quieras saludar, haré lo posible
             por responderte pronto.
           </p>
         </motion.div>
 
+        {/* Cards */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto"
         >
-          <div className="bg-slate-800/40 p-8 rounded-2xl border border-slate-700/50 hover:border-violet-500/50 transition-all group flex flex-col items-center">
-            <div className="p-4 bg-violet-500/10 rounded-full text-violet-400 mb-4 group-hover:scale-110 transition-transform">
-              <Mail className="w-8 h-8" />
+          {/* Email */}
+          <div className="bg-[#06384D]/40 p-8 rounded-2xl border border-[#0E5A73]/50 hover:border-[#79C7D9]/50 transition-all group flex flex-col items-center">
+            <div className="p-4 bg-[#052F40]/50 rounded-full text-[#79C7D9] mb-4 group-hover:scale-110 transition-transform">
+              <Mail className="w-8 h-8 text-[#79C7D9]" />
             </div>
-            <h3 className="text-lg font-semibold text-slate-200 mb-2">Email</h3>
+
+            <h3 className="text-lg font-semibold text-[#EAF6FA] mb-2">Email</h3>
+
             <a
               href="mailto:sergio.cybert@gmail.com"
-              className="text-slate-400 hover:text-violet-400 transition-colors break-all"
+              className="text-[#A9C7D1] hover:text-[#79C7D9] transition-colors break-all"
             >
               sergio.cybert@gmail.com
             </a>
           </div>
 
-          <div className="bg-slate-800/40 p-8 rounded-2xl border border-slate-700/50 hover:border-violet-500/50 transition-all group flex flex-col items-center">
-            <div className="p-4 bg-pink-500/10 rounded-full text-pink-400 mb-4 group-hover:scale-110 transition-transform">
-              <Phone className="w-8 h-8" />
+          {/* Phone */}
+          <div className="bg-[#06384D]/40 p-8 rounded-2xl border border-[#0E5A73]/50 hover:border-[#79C7D9]/50 transition-all group flex flex-col items-center">
+            <div className="p-4 bg-[#052F40]/50 rounded-full text-[#F2921D] mb-4 group-hover:scale-110 transition-transform">
+              <Phone className="w-8 h-8 text-[#F2921D]" />
             </div>
-            <h3 className="text-lg font-semibold text-slate-200 mb-2">Tel.</h3>
-            <p className="text-slate-400">+91 976317906</p>
+
+            <h3 className="text-lg font-semibold text-[#EAF6FA] mb-2">Tel.</h3>
+
+            <a
+              href="tel:+91976317906"
+              className="text-[#A9C7D1] hover:text-[#79C7D9] transition-colors"
+            >
+              +91 976317906
+            </a>
           </div>
 
-          <div className="bg-slate-800/40 p-8 rounded-2xl border border-slate-700/50 hover:border-violet-500/50 transition-all group flex flex-col items-center">
-            <div className="p-4 bg-blue-500/10 rounded-full text-blue-400 mb-4 group-hover:scale-110 transition-transform">
-              <MapPin className="w-8 h-8" />
+          {/* Location */}
+          <div className="bg-[#06384D]/40 p-8 rounded-2xl border border-[#0E5A73]/50 hover:border-[#79C7D9]/50 transition-all group flex flex-col items-center">
+            <div className="p-4 bg-[#052F40]/50 rounded-full text-[#79C7D9] mb-4 group-hover:scale-110 transition-transform">
+              <MapPin className="w-8 h-8 text-[#79C7D9]" />
             </div>
-            <h3 className="text-lg font-semibold text-slate-200 mb-2">
+
+            <h3 className="text-lg font-semibold text-[#EAF6FA] mb-2">
               Dirección
             </h3>
-            <p className="text-slate-400">San Borja, Lima</p>
+
+            <a
+              href="https://www.google.com/maps?q=San+Borja,+Lima,+Peru"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#A9C7D1] hover:text-[#79C7D9] transition-colors"
+            >
+              San Borja, Lima
+            </a>
           </div>
         </motion.div>
       </div>

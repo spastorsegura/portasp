@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Urbanist } from "next/font/google";
 import "./globals.css";
 import {
   personSchema,
@@ -8,10 +8,9 @@ import {
   breadcrumbSchema,
 } from "@/lib/jsonld";
 
-const inter = Inter({
+const urbanist = Urbanist({
   subsets: ["latin"],
-  display: "swap", // Prevent render-blocking — improves LCP
-  preload: true,
+  display: "swap",
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -141,13 +140,10 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon.ico", type: "image/x-icon" },
-    ],
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
 
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
   },
 
   manifest: "/manifest.json",
@@ -177,7 +173,6 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-
         {/* ── Preload OG Image for fast LCP ── */}
         <link
           rel="preload"
@@ -185,40 +180,40 @@ export default function RootLayout({
           href="/portfolio_hero_section.png"
           type="image/png"
         />
-
-        {/* ── Theme color (supported by Chrome/Android) ── */}
-        <meta name="theme-color" content="#0f172a" />
-        <meta name="color-scheme" content="dark" />
-
+        {/* Theme */}
+        <meta name="theme-color" content="#052F40" />
+        <meta name="color-scheme" content="dark light" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
         {/* ── Geo / Location signals ── */}
-        <meta name="geo.region" content="IN-KA" />
-        <meta name="geo.placename" content="Bangalore" />
-
+        <meta name="geo.region" content="PE-LIM" />
+        <meta name="geo.placename" content="San Borja, Lima" />
+        <meta name="geo.position" content="-12.1067;-77.0030" />
+        <meta name="ICBM" content="-12.1067, -77.0030" />
         {/* ── JSON-LD: Person Schema ── */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
-
         {/* ── JSON-LD: WebSite Schema ── */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
-
         {/* ── JSON-LD: Projects ItemList Schema ── */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(projectsSchema) }}
         />
-
         {/* ── JSON-LD: Breadcrumb Schema ── */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
         />
       </head>
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body className={`${urbanist.className} antialiased`}>{children}</body>
     </html>
   );
 }

@@ -5,70 +5,57 @@ import { Database, Globe, Server, Cpu } from "lucide-react";
 
 const About = () => {
   const skills = [
-  {
-    category: "Frontend Development",
-    icon: <Globe className="w-6 h-6 text-violet-400" />,
-    items: [
-      "React.js",
-      "Next.js",
-      "Astro",
-      "TypeScript",
-      "JavaScript (ES6+)",
-      "HTML5",
-      "CSS3",
-      "Tailwind CSS",
-      "Bootstrap",
-      "Framer Motion",
-    ],
-  },
+    {
+      category: "Frontend Development",
+      icon: <Globe className="w-6 h-6 text-[#79C7D9]" />,
+      items: [
+        "React.js",
+        "Next.js",
+        "Astro",
+        "TypeScript",
+        "JavaScript (ES6+)",
+        "HTML5",
+        "CSS3",
+        "Tailwind CSS",
+        "Bootstrap",
+        "Framer Motion",
+      ],
+    },
 
-  {
-    category: "Backend & APIs",
-    icon: <Server className="w-6 h-6 text-pink-400" />,
-    items: [
-      "Node.js",
-      "Express.js",
-      "REST APIs",
-      "Java",
-      "Firebase",
-    ],
-  },
+    {
+      category: "Backend & APIs",
+      icon: <Server className="w-6 h-6 text-[#79C7D9]" />,
+      items: ["Node.js", "Express.js", "REST APIs", "Java", "Firebase"],
+    },
 
-  {
-    category: "Base de Datos & CMS",
-    icon: <Database className="w-6 h-6 text-blue-400" />,
-    items: [
-      "MongoDB",
-      "MySQL",
-      "PostgreSQL",
-      "SQL",
-      "WordPress",
-      "Drupal",
-    ],
-  },
+    {
+      category: "Base de Datos & CMS",
+      icon: <Database className="w-6 h-6 text-[#79C7D9]" />,
+      items: ["MongoDB", "MySQL", "PostgreSQL", "SQL", "WordPress", "Drupal"],
+    },
 
-  {
-    category: "Herramientas & Diseño",
-    icon: <Cpu className="w-6 h-6 text-emerald-400" />,
-    items: [
-      "Git/GitHub",
-      "Figma",
-      "Adobe XD",
-      "Postman",
-      "VS Code",
-      "Responsive Design",
-      "UI/UX Design",
-      "Performance Optimization",
-      "SEO Basics",
-    ],
-  },
-];
+    {
+      category: "Herramientas & Diseño",
+      icon: <Cpu className="w-6 h-6 text-[#79C7D9]" />,
+      items: [
+        "Git/GitHub",
+        "Figma",
+        "Adobe XD",
+        "Postman",
+        "VS Code",
+        "Responsive Design",
+        "UI/UX Design",
+        "Performance Optimization",
+        "SEO Basics",
+      ],
+    },
+  ];
 
   return (
     <section
       id="about"
       aria-label="About Shashidhar Naik"
-      className="py-20 bg-slate-900/30 relative"
+      className="py-20 bg-[#052F40]/30 relative"
     >
       <div className="container mx-auto px-4 md:px-8">
         <motion.div
@@ -78,17 +65,19 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto mb-16 text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Sobre mí</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#EAF6FA]">
+            Sobre mí
+          </h2>
 
-          <p className="text-lg text-slate-400 leading-relaxed">
+          <p className="text-lg text-[#A9C7D1] leading-relaxed">
             Soy{" "}
-            <span className="text-violet-400 font-semibold">
+            <span className="text-[#79C7D9] font-semibold">
               Frontend Developer
             </span>{" "}
             especializado en crear experiencias web modernas, interactivas y
             enfocadas en la experiencia de usuario. Trabajo principalmente con{" "}
-            <span className="text-pink-400">
-              React, Next.js, Tailwindcss y JavaScript
+            <span className="text-[#F2921D]">
+              React, Next.js, Tailwind CSS y JavaScript
             </span>
             , desarrollando interfaces responsivas, plataformas digitales y
             productos web visualmente atractivos.
@@ -109,19 +98,24 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-slate-800/40 p-6 rounded-xl border border-slate-700/50 hover:border-violet-500/50 transition-colors group"
+              className="bg-[#06384D]/40 p-6 rounded-xl border border-[#0E5A73]/40 hover:border-[#79C7D9]/50 transition-colors group"
             >
-              <div className="mb-4 bg-slate-900/50 w-12 h-12 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+              {/* Icon */}
+              <div className="mb-4 bg-[#052F40]/50 w-12 h-12 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                 {skill.icon}
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-slate-200">
+
+              {/* Title */}
+              <h3 className="text-xl font-semibold mb-4 text-[#EAF6FA]">
                 {skill.category}
               </h3>
+
+              {/* Items */}
               <div className="flex flex-wrap gap-2">
                 {skill.items.map((item, i) => (
                   <span
                     key={i}
-                    className="text-sm px-2 py-1 bg-slate-700/50 text-slate-300 rounded hover:text-white transition-colors"
+                    className="text-sm px-2 py-1 bg-[#052F40]/50 text-[#A9C7D1] border border-[#0E5A73] rounded hover:text-[#79C7D9] hover:border-[#79C7D9] transition-colors"
                   >
                     {item}
                   </span>

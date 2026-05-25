@@ -624,10 +624,10 @@ const PortfolioAssistant = () => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 right-6 z-50 p-4 rounded-full shadow-[0_0_20px_rgba(139,92,246,0.5)] transition-all duration-300 ${
+        className={`fixed bottom-6 right-6 z-50 p-4 rounded-full shadow-[0_0_20px_rgba(242,146,29,0.25)] transition-all duration-300 ${
           isOpen
             ? "scale-0 opacity-0 pointer-events-none"
-            : "bg-violet-600 text-white"
+            : "bg-[#F2921D] text-[#052F40]"
         }`}
       >
         <MessageSquare className="w-6 h-6" />
@@ -639,31 +639,38 @@ const PortfolioAssistant = () => {
             initial={{ opacity: 0, y: 100, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 100, scale: 0.9 }}
-            className="fixed bottom-6 right-6 w-[90vw] md:w-[380px] h-[600px] max-h-[85vh] bg-slate-900 border border-slate-700/50 rounded-2xl shadow-2xl flex flex-col overflow-hidden z-50 backdrop-blur-xl"
+            className="fixed bottom-6 right-6 w-[90vw] md:w-[380px] h-[600px] max-h-[85vh] bg-[#052F40] border border-[#0E5A73]/50 rounded-2xl shadow-2xl flex flex-col overflow-hidden z-50 backdrop-blur-xl"
             style={{ boxShadow: "0 0 50px -12px rgba(0,0,0,0.5)" }}
           >
-            <div className="p-4 border-b border-slate-700/50 bg-slate-800/50 flex items-center justify-between">
+            {/* Header */}
+            <div className="p-4 border-b border-[#0E5A73]/50 bg-[#06384D]/50 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-violet-600 to-indigo-600 flex items-center justify-center relative">
-                  <Bot className="w-6 h-6 text-white" />
-                  <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-slate-900 rounded-full"></span>
+                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#79C7D9] to-[#F2921D] flex items-center justify-center relative">
+                  <Bot className="w-6 h-6 text-[#052F40]" />
+
+                  <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-[#052F40] rounded-full" />
                 </div>
+
                 <div>
-                  <h3 className="font-bold text-slate-100">Asistente</h3>
-                  <p className="text-xs text-violet-400 flex items-center gap-1">
-                    <Sparkles className="w-3 h-3" /> Online
+                  <h3 className="font-bold text-[#EAF6FA]">Asistente</h3>
+
+                  <p className="text-xs text-[#79C7D9] flex items-center gap-1">
+                    <Sparkles className="w-3 h-3 text-[#79C7D9]" />
+                    Online
                   </p>
                 </div>
               </div>
+
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-2 hover:bg-slate-700/50 rounded-lg transition-colors text-slate-400 hover:text-white"
+                className="p-2 hover:bg-[#0E5A73]/30 rounded-lg transition-colors text-[#A9C7D1] hover:text-[#EAF6FA]"
               >
                 <Minimize2 className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent">
+            {/* Messages */}
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-[#0E5A73] scrollbar-track-transparent">
               {messages.map((msg) => (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
@@ -674,14 +681,15 @@ const PortfolioAssistant = () => {
                   <div
                     className={`max-w-[80%] p-3 rounded-2xl shadow-sm ${
                       msg.type === "user"
-                        ? "bg-violet-600 text-white rounded-tr-sm"
-                        : "bg-slate-800 text-slate-200 border border-slate-700/50 rounded-tl-sm"
+                        ? "bg-[#F2921D] text-[#052F40] rounded-tr-sm"
+                        : "bg-[#06384D] text-[#EAF6FA] border border-[#0E5A73]/50 rounded-tl-sm"
                     }`}
                   >
                     <p className="text-sm leading-relaxed whitespace-pre-wrap">
                       {msg.text}
                     </p>
-                    <span className="text-[10px] opacity-50 mt-1 block px-1">
+
+                    <span className="text-[10px] opacity-60 mt-1 block px-1 text-[#A9C7D1]">
                       {msg.timestamp.toLocaleTimeString([], {
                         hour: "2-digit",
                         minute: "2-digit",
@@ -691,21 +699,24 @@ const PortfolioAssistant = () => {
                 </motion.div>
               ))}
 
+              {/* Typing */}
               {isTyping && (
                 <div className="flex justify-start">
-                  <div className="bg-slate-800 border border-slate-700/50 p-3 rounded-2xl rounded-tl-sm flex gap-2 items-center">
-                    <span className="w-2 h-2 bg-violet-500/50 rounded-full animate-bounce"></span>
-                    <span className="w-2 h-2 bg-violet-500/50 rounded-full animate-bounce delay-75"></span>
-                    <span className="w-2 h-2 bg-violet-500/50 rounded-full animate-bounce delay-150"></span>
+                  <div className="bg-[#06384D] border border-[#0E5A73]/50 p-3 rounded-2xl rounded-tl-sm flex gap-2 items-center">
+                    <span className="w-2 h-2 bg-[#79C7D9] rounded-full animate-bounce" />
+                    <span className="w-2 h-2 bg-[#79C7D9] rounded-full animate-bounce delay-75" />
+                    <span className="w-2 h-2 bg-[#79C7D9] rounded-full animate-bounce delay-150" />
                   </div>
                 </div>
               )}
+
               <div ref={messagesEndRef} />
             </div>
 
+            {/* Quick asks */}
             {messages.length < 4 && !isTyping && (
               <div className="px-4 pb-2">
-                <p className="text-xs text-slate-500 mb-2 pl-1">
+                <p className="text-xs text-[#A9C7D1] mb-2 pl-1">
                   Temas sugeridos:
                 </p>
 
@@ -714,7 +725,7 @@ const PortfolioAssistant = () => {
                     <button
                       key={qa}
                       onClick={() => handleQuickAsk(qa)}
-                      className="whitespace-nowrap px-3 py-1.5 bg-slate-800/50 border border-slate-700 hover:border-violet-500/50 hover:bg-violet-500/10 rounded-full text-xs text-slate-300 transition-colors"
+                      className="whitespace-nowrap px-3 py-1.5 bg-[#06384D]/50 border border-[#0E5A73] hover:border-[#79C7D9] hover:bg-[#79C7D9]/10 rounded-full text-xs text-[#A9C7D1] transition-colors"
                     >
                       {qa}
                     </button>
@@ -723,9 +734,10 @@ const PortfolioAssistant = () => {
               </div>
             )}
 
+            {/* Input */}
             <form
               onSubmit={handleSendMessage}
-              className="p-4 border-t border-slate-700/50 bg-slate-800/30"
+              className="p-4 border-t border-[#0E5A73]/50 bg-[#06384D]/30"
             >
               <div className="flex gap-2">
                 <input
@@ -733,12 +745,13 @@ const PortfolioAssistant = () => {
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   placeholder="Pregúntame lo que quieras..."
-                  className="flex-1 bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-2 text-sm text-slate-200 focus:outline-none focus:border-violet-500/50 transition-colors placeholder:text-slate-600"
+                  className="flex-1 bg-[#052F40]/50 border border-[#0E5A73] rounded-xl px-4 py-2 text-sm text-[#EAF6FA] focus:outline-none focus:border-[#79C7D9] transition-colors placeholder:text-[#A9C7D1]/50"
                 />
+
                 <button
                   type="submit"
                   disabled={!inputValue.trim() || isTyping}
-                  className="bg-violet-600 hover:bg-violet-700 disabled:opacity-50 disabled:cursor-not-allowed text-white p-2.5 rounded-xl transition-colors shadow-lg shadow-violet-600/20"
+                  className="bg-[#F2921D] hover:bg-[#F2762E] disabled:opacity-50 disabled:cursor-not-allowed text-[#052F40] p-2.5 rounded-xl transition-colors shadow-lg shadow-[#F2921D]/20"
                 >
                   <Send className="w-4 h-4" />
                 </button>
