@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { personSchema, websiteSchema, projectsSchema, breadcrumbSchema } from "@/lib/jsonld";
+import {
+  personSchema,
+  websiteSchema,
+  projectsSchema,
+  breadcrumbSchema,
+} from "@/lib/jsonld";
 
 const inter = Inter({
   subsets: ["latin"],
-  display: "swap",        // Prevent render-blocking — improves LCP
+  display: "swap", // Prevent render-blocking — improves LCP
   preload: true,
 });
 
@@ -13,59 +18,65 @@ const inter = Inter({
 // Site-wide Metadata (Next.js Metadata API)
 // ─────────────────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
-  metadataBase: new URL("https://shashidhar-portfolio.netlify.app"),
-  referrer: 'origin-when-cross-origin',
+  metadataBase: new URL("https://tu-dominio.com"),
+  referrer: "origin-when-cross-origin",
 
   title: {
-    default: "Shashidhar Naik | Full Stack Developer — React, Node.js, Next.js",
-    template: "%s | Shashidhar Naik",
+    default: "Sergio Pastor | Frontend Developer — React, Next.js & UI/UX",
+    template: "%s | Sergio Pastor",
   },
+
   description:
-    "Portfolio of Shashidhar Naik — Software Engineer II with 4+ years building scalable enterprise web apps. Expert in React, Next.js, Node.js, TypeScript, and MERN/MEVN stack. Open source contributor.",
+    "Portfolio de Sergio Pastor — Frontend Developer especializado en React, Next.js, WordPress y experiencias web modernas. Desarrollo de interfaces interactivas, diseño UI/UX y productos digitales enfocados en rendimiento y experiencia de usuario.",
 
   keywords: [
     // Identity
-    "Shashidhar Naik",
-    "Shashidhar Naik Portfolio",
-    "shashidhar developer",
-    // Role keywords
-    "Software Engineer II",
-    "Full Stack Developer",
-    "Full Stack Developer Portfolio",
-    "Frontend Lead",
-    "JavaScript Engineer",
-    "JavaScript Developer",
-    // Tech keywords
+    "Sergio Pastor",
+    "Sergio Pastor Portfolio",
+    "sergio pastor frontend developer",
+
+    // Roles
+    "Frontend Developer",
+    "Frontend Developer Portfolio",
+    "Web Developer",
     "React Developer",
-    "React.js Developer",
+    "UI Developer",
+    "Creative Developer",
+
+    // Tech
+    "React Developer",
     "Next.js Developer",
-    "Node.js Developer",
+    "JavaScript Developer",
     "TypeScript Developer",
-    "MERN Stack Developer",
-    "MEVN Stack Developer",
-    "Vue.js Developer",
-    "Python Developer",
-    // Domain
-    "Warehouse Management System Developer",
-    "Enterprise Web Application Developer",
-    "Open Source Developer",
-    "NPM Package Author",
+    "WordPress Developer",
+    "Astro Developer",
+    "HTML CSS JavaScript",
+    "UI UX Designer",
+
+    // Design
+    "Diseño Web",
+    "Diseño UI UX",
+    "Animaciones Web",
+    "Interactive Web Developer",
+
     // Location
-    "Software Engineer Bangalore",
-    "Web Developer India",
-    // Portfolio type
-    "Developer Portfolio",
-    "Web Application Portfolio",
-    "Software Engineer Portfolio India",
+    "Frontend Developer Perú",
+    "Web Developer Lima",
+    "Frontend Developer Lima Perú",
+
+    // Portfolio
+    "Portfolio Frontend",
+    "Portfolio Web Developer",
+    "Creative Portfolio",
   ],
 
-  authors: [{ name: "Shashidhar Naik", url: "https://shashidhar-portfolio.netlify.app" }],
-  creator: "Shashidhar Naik",
-  publisher: "Shashidhar Naik",
+  authors: [{ name: "Sergio Pastor", url: "https://tu-dominio.com" }],
+  creator: "Sergio Pastor",
+  publisher: "Sergio Pastor",
 
-  applicationName: "Shashidhar Naik Portfolio",
+  applicationName: "Sergio Pastor Portfolio",
   category: "technology",
-  classification: "Software Engineer Portfolio",
+  classification: "Frontend Developer Portfolio",
 
   formatDetection: {
     email: false,
@@ -73,12 +84,10 @@ export const metadata: Metadata = {
     telephone: false,
   },
 
-  // ── Canonical ──────────────────────────────────────────────────────────────
   alternates: {
     canonical: "/",
   },
 
-  // ── Robots ────────────────────────────────────────────────────────────────
   robots: {
     index: true,
     follow: true,
@@ -91,61 +100,60 @@ export const metadata: Metadata = {
     },
   },
 
-  // ── Open Graph ────────────────────────────────────────────────────────────
   openGraph: {
     type: "profile",
-    firstName: "Shashidhar",
-    lastName: "Naik",
-    username: "shashi089",
-    title: "Shashidhar Naik | Full Stack Developer Portfolio",
+    firstName: "Sergio",
+    lastName: "Pastor",
+    username: "sergiopastor",
+    title: "Sergio Pastor | Frontend Developer Portfolio",
     description:
-      "Software Engineer II with 4+ years of experience. React, Next.js, Node.js, TypeScript. Frontend Lead for enterprise Warehouse Management System. Open source contributor.",
-    url: "https://shashidhar-portfolio.netlify.app",
-    siteName: "Shashidhar Naik Portfolio",
-    locale: "en_US",
+      "Frontend Developer especializado en React, Next.js, WordPress y experiencias digitales modernas. Desarrollo de interfaces interactivas, UI/UX y productos web enfocados en rendimiento.",
+    url: "https://tu-dominio.com",
+    siteName: "Sergio Pastor Portfolio",
+    locale: "es_PE",
+
     images: [
       {
         url: "/portfolio_hero_section.png",
         width: 1200,
         height: 630,
-        alt: "Shashidhar Naik — Full Stack Developer Portfolio Preview",
+        alt: "Sergio Pastor — Frontend Developer Portfolio",
         type: "image/png",
       },
     ],
   },
 
-  // ── Twitter Card ──────────────────────────────────────────────────────────
   twitter: {
     card: "summary_large_image",
-    title: "Shashidhar Naik | Full Stack Developer — React, Node.js, Next.js",
+    title: "Sergio Pastor | Frontend Developer — React & Next.js",
     description:
-      "Software Engineer II specializing in scalable enterprise web apps. Expert in MERN/MEVN stack and open source tools.",
+      "Frontend Developer enfocado en React, Next.js, WordPress, UI/UX y experiencias web modernas.",
+
     images: [
       {
         url: "/portfolio_hero_section.png",
-        alt: "Shashidhar Naik Portfolio Preview",
+        alt: "Sergio Pastor Portfolio Preview",
       },
     ],
-    creator: "@shashidhar_dev",
-    site: "@shashidhar_dev",
+
+    creator: "@tuusuario",
+    site: "@tuusuario",
   },
 
-  // ── Icons ─────────────────────────────────────────────────────────────────
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
       { url: "/favicon.ico", type: "image/x-icon" },
     ],
+
     shortcut: "/favicon.ico",
     apple: "/favicon.ico",
   },
 
-  // ── Manifest ──────────────────────────────────────────────────────────────
   manifest: "/manifest.json",
 
-  // ── Theme ─────────────────────────────────────────────────────────────────
   other: {
-    "theme-color": "#0f172a",       // slate-950 — matches page background
+    "theme-color": "#0f172a",
     "color-scheme": "dark",
     "msapplication-TileColor": "#0f172a",
   },
@@ -164,7 +172,11 @@ export default function RootLayout({
       <head>
         {/* ── Font Performance: Preconnect to Google Fonts ── */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
 
         {/* ── Preload OG Image for fast LCP ── */}
         <link
@@ -206,9 +218,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
         />
       </head>
-      <body className={`${inter.className} antialiased`}>
-        {children}
-      </body>
+      <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
   );
 }

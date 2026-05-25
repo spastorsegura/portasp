@@ -1,235 +1,378 @@
 "use client";
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Tag, X } from 'lucide-react';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ExternalLink, Tag, X, Github, Globe } from "lucide-react";
 
 interface Project {
-    title: string;
-    role: string;
-    desc: string;
-    fullDesc?: string[];
-    tags: string[];
-    links?: { label: string; url: string; icon?: React.ReactNode }[];
+  title: string;
+  role: string;
+  desc: string;
+  fullDesc?: string[];
+  tags: string[];
+  links?: {
+    label: string;
+    url: string;
+    type?: "demo" | "github";
+  }[];
 }
 
 const Projects = () => {
-    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-    const projects: Project[] = [
+  const projects: Project[] = [
+    {
+      title: "Portafolio Frontend Interactivo",
+      role: "Frontend Developer",
+      desc: "Portafolio moderno enfocado en experiencias interactivas, animaciones y diseño visual.",
+
+      fullDesc: [
+        "Desarrollo de una interfaz moderna y totalmente responsiva.",
+        "Implementación de animaciones y transiciones interactivas.",
+        "Optimización de rendimiento y experiencia de usuario.",
+        "Integración de diseño visual enfocado en frontend creativo.",
+      ],
+
+      tags: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
+
+      links: [
         {
-            title: "Warehouse Management System (WMS)",
-            role: "Frontend Lead",
-            desc: "Enterprise IIoT solution for managing inventory, storage, and quality inspection.",
-            fullDesc: [
-                "Led frontend delivery for Inventory, Storage IN/OUT, Quality Inspection, and BOM modules.",
-                "Implemented QR-based tracking and CSV bulk upload workflows.",
-                "Built real-time dashboards for multi-warehouse inventory visibility.",
-                "Coordinated with business teams and developers for optimal feature delivery.",
-                "Integrate frontend modules with backend REST APIs."
-            ],
-            tags: ["React", "Material UI", "IIoT", "Enterprise"]
+          label: "Ver proyecto",
+          url: "https://tu-demo.netlify.app",
+          type: "demo",
         },
         {
-            title: "Stock Automation Platform",
-            role: "Full Stack Developer",
-            desc: "Automated trading value-added system with real-time buy/sell execution.",
-            fullDesc: [
-                "Developed automated stock trading workflows integrated with broker APIs.",
-                "Implemented real-time buy/sell automation and Cron-based background jobs.",
-                "Built and integrated frontend components with backend REST APIs."
-            ],
-            tags: ["MERN Stack", "Cron Jobs", "Real-time"]
+          label: "GitHub",
+          url: "https://github.com/spastorsegura",
+          type: "github",
         },
+      ],
+    },
+
+    {
+      title: "Plataformas Web Institucionales",
+      role: "Webmaster & Frontend Developer",
+      desc: "Gestión y desarrollo frontend de plataformas institucionales para contenido cultural y eventos.",
+
+      fullDesc: [
+        "Implementación y actualización de contenidos digitales utilizando Drupal.",
+        "Desarrollo y ajustes frontend con HTML, CSS y JavaScript.",
+        "Diseño de interfaces para campañas y eventos culturales.",
+        "Optimización visual y experiencia de usuario.",
+      ],
+
+      tags: ["Drupal", "HTML", "CSS", "JavaScript"],
+
+      links: [
         {
-            title: "IIoT Monitoring Dashboard",
-            role: "MEVN Stack Developer",
-            desc: "Data visualization platform for machine health and production metrics.",
-            fullDesc: [
-                "Developed data visualization dashboard to monitor machine health, performance trends, and production metrics.",
-                "Enabled real-time insights for management and engineers to support informed decision-making.",
-                "Implemented User Management with role-based access control (RBAC).",
-                "Developed Shift Management and Production Planning modules."
-            ],
-            tags: ["Vue.js", "Node.js", "Charts", "Analytics"]
+          label: "GitHub",
+          url: "https://github.com/spastorsegura",
+          type: "github",
         },
+      ],
+    },
+
+    {
+      title: "Sitios Web WordPress",
+      role: "Frontend Developer & WordPress Freelancer",
+      desc: "Desarrollo de sitios web personalizados y landing pages para proyectos freelance.",
+
+      fullDesc: [
+        "Creación de sitios web modernos y responsivos.",
+        "Personalización de themes y componentes WordPress.",
+        "Optimización SEO y velocidad de carga.",
+        "Integración de formularios y herramientas de marketing.",
+      ],
+
+      tags: ["WordPress", "Elementor", "JavaScript", "CSS"],
+
+      links: [
         {
-            title: "QR Layout Designer & Libraries",
-            role: "Open Source Contributor",
-            desc: "A suite of tools for designing and printing QR labels.",
-            fullDesc: [
-                "Developed `qrlayout-core`: A core logic library for QR layout generation.",
-                "Developed `qrlayout-ui`: A UI component library for the designer.",
-                "Built a comprehensive demo application to showcase the libraries."
-            ],
-            tags: ["Open Source", "NPM", "React", "TypeScript"],
-            links: [
-                { label: "qrlayout-core", url: "https://www.npmjs.com/package/qrlayout-core" },
-                { label: "qrlayout-ui", url: "https://www.npmjs.com/package/qrlayout-ui" },
-                { label: "Demo App", url: "https://qr-layout-designer.netlify.app/" }
-            ]
+          label: "Ver proyecto",
+          url: "https://tu-web.com",
+          type: "demo",
         },
+      ],
+    },
+
+    {
+      title: "Aplicaciones Web MERN",
+      role: "Full Stack Developer",
+      desc: "Desarrollo de aplicaciones web full stack utilizando tecnologías modernas del ecosistema JavaScript.",
+
+      fullDesc: [
+        "Construcción de APIs REST y frontend dinámico.",
+        "Integración con bases de datos relacionales y no relacionales.",
+        "Desarrollo de dashboards y paneles administrativos.",
+        "Arquitectura escalable para aplicaciones web.",
+      ],
+
+      tags: ["MongoDB", "Express", "React", "Node.js"],
+
+      links: [
         {
-            title: "E-Commerce Application",
-            role: "Frontend Developer",
-            desc: "Responsive e-commerce platform with product catalog and shopping cart.",
-            fullDesc: [
-                "Built responsive UI using Bootstrap and custom CSS.",
-                "Implemented product filtering, search, and cart functionality.",
-                "Optimized for performance and mobile devices."
-            ],
-            tags: ["React.js", "Bootstrap", "JavaScript"]
+          label: "GitHub",
+          url: "https://github.com/spastorsegura",
+          type: "github",
         },
+      ],
+    },
+
+    {
+      title: "Orgullosos por Nuestra Historia",
+      role: "Frontend Developer",
+      desc: "Plataforma interactiva para visualizar fotografías dinámicamente dentro de un mapa del Perú.",
+
+      fullDesc: [
+        "Implementación de un mapa interactivo utilizando Canvas API.",
+        "Sistema dinámico de carga y visualización de imágenes.",
+        "Integración con base de datos para almacenamiento de contenido.",
+        "Experiencia visual enfocada en interacción y participación.",
+      ],
+
+      tags: ["React", "Canvas API", "Node.js", "SQL"],
+
+      links: [
         {
-            title: "HR Management System (HRMS)",
-            role: "Full Stack Developer",
-            desc: "Comprehensive HR solution for employee management and payroll.",
-            fullDesc: [
-                "Developed comprehensive employee management modules.",
-                "Built backend for payroll processing and attendance tracking.",
-                "Implemented secure authentication and role-based access."
-            ],
-            tags: ["React.js", "Bootstrap", "Node.js", "Express", "MongoDB"]
+          label: "GitHub",
+          url: "https://github.com/spastorsegura",
+          type: "github",
         },
+      ],
+    },
 
-    ];
+    {
+      title: "Interfaces UI/UX y Experiencias Digitales",
+      role: "UI/UX Designer & Frontend Developer",
+      desc: "Diseño y desarrollo de interfaces modernas centradas en experiencia de usuario.",
 
-    return (
-        <section id="projects" aria-label="Featured Software Projects" className="py-20 bg-slate-900/30">
-            <div className="container mx-auto px-4 md:px-8">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="mb-12"
-                >
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
-                    <p className="text-slate-400 max-w-2xl">
-                        A selection of complex enterprise applications and systems I've engineered.
-                    </p>
-                </motion.div>
+      fullDesc: [
+        "Diseño de interfaces modernas y minimalistas.",
+        "Creación de prototipos y sistemas visuales.",
+        "Implementación frontend pixel-perfect.",
+        "Enfoque en accesibilidad y usabilidad.",
+      ],
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {projects.map((project, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            whileHover={{ y: -5 }}
-                            className="bg-slate-800/40 rounded-xl overflow-hidden border border-slate-700/50 hover:border-violet-500/50 group transition-all flex flex-col"
-                        >
-                            <div className="h-48 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center p-8 group-hover:from-slate-800 group-hover:to-violet-900/20 transition-colors">
-                                <div className="text-center">
-                                    <h3 className="text-xl font-bold text-slate-200 mb-1">{project.title}</h3>
-                                    <span className="text-sm text-violet-400 font-medium">{project.role}</span>
-                                </div>
-                            </div>
+      tags: ["Figma", "Adobe XD", "UI/UX", "Frontend"],
 
-                            <div className="p-6 flex flex-col flex-grow">
-                                <p className="text-slate-400 mb-6 text-sm leading-relaxed">
-                                    {project.desc}
-                                </p>
+      links: [
+        {
+          label: "Ver Behance",
+          url: "https://behance.net",
+          type: "demo",
+        },
+      ],
+    },
+  ];
 
-                                <div className="flex flex-wrap gap-2 mb-6 mt-auto">
-                                    {project.tags.map((tag, i) => (
-                                        <span key={i} className="flex items-center gap-1 text-xs px-2 py-1 bg-slate-900 text-slate-300 rounded border border-slate-700">
-                                            <Tag className="w-3 h-3" />
-                                            {tag}
-                                        </span>
-                                    ))}
-                                </div>
+  return (
+    <section id="projects" className="py-20 bg-slate-900/30">
+      <div className="container mx-auto px-4 md:px-8">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-12"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Proyectos</h2>
 
-                                <button
-                                    onClick={() => setSelectedProject(project)}
-                                    className="w-full mt-2 py-2 rounded-lg bg-slate-700/50 hover:bg-violet-600 hover:text-white text-slate-300 text-sm font-medium transition-all flex items-center justify-center gap-2"
-                                >
-                                    View Details <ExternalLink className="w-4 h-4" />
-                                </button>
-                            </div>
-                        </motion.div>
-                    ))}
+          <p className="text-slate-400 max-w-2xl">
+            Una selección de proyectos web, experiencias digitales e interfaces
+            modernas que he desarrollado.
+          </p>
+        </motion.div>
+
+        {/* Cards */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.1,
+              }}
+              whileHover={{ y: -5 }}
+              className="bg-slate-800/40 rounded-2xl overflow-hidden border border-slate-700/50 hover:border-violet-500/50 transition-all flex flex-col"
+            >
+              {/* Top */}
+              <div className="h-48 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center p-8">
+                <div className="text-center">
+                  <h3 className="text-xl font-bold text-slate-200 mb-2">
+                    {project.title}
+                  </h3>
+
+                  <span className="text-sm text-violet-400 font-medium">
+                    {project.role}
+                  </span>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 flex flex-col flex-grow">
+                <p className="text-slate-400 mb-6 text-sm leading-relaxed">
+                  {project.desc}
+                </p>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mb-6 mt-auto">
+                  {project.tags.map((tag, i) => (
+                    <span
+                      key={i}
+                      className="flex items-center gap-1 text-xs px-2 py-1 bg-slate-900 text-slate-300 rounded border border-slate-700"
+                    >
+                      <Tag className="w-3 h-3" />
+                      {tag}
+                    </span>
+                  ))}
                 </div>
 
-                {/* Project Modal */}
-                <AnimatePresence>
-                    {selectedProject && (
-                        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                onClick={() => setSelectedProject(null)}
-                                className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-                            />
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                                animate={{ opacity: 1, scale: 1, y: 0 }}
-                                exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                                className="relative bg-slate-900 border border-slate-700 rounded-2xl p-6 md:p-8 max-w-2xl w-full shadow-2xl max-h-[80vh] overflow-y-auto"
-                            >
-                                <button
-                                    onClick={() => setSelectedProject(null)}
-                                    className="absolute top-4 right-4 p-2 bg-slate-800 rounded-full hover:bg-slate-700 transition-colors"
-                                >
-                                    <X className="w-5 h-5 text-slate-400" />
-                                </button>
+                {/* Button */}
+                <button
+                  onClick={() => setSelectedProject(project)}
+                  className="w-full py-2 rounded-lg bg-slate-700/50 hover:bg-violet-600 hover:text-white text-slate-300 text-sm font-medium transition-all flex items-center justify-center gap-2"
+                >
+                  Ver detalles
+                  <ExternalLink className="w-4 h-4" />
+                </button>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
-                                <h3 className="text-2xl font-bold text-white mb-2">{selectedProject.title}</h3>
-                                <p className="text-violet-400 font-medium mb-6">{selectedProject.role}</p>
+        {/* Modal */}
+        <AnimatePresence>
+          {selectedProject && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+              {/* Backdrop */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setSelectedProject(null)}
+                className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+              />
 
-                                <div className="space-y-4 mb-8">
-                                    <h4 className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Key Responsibilities & Features</h4>
-                                    <ul className="space-y-2">
-                                        {selectedProject.fullDesc?.map((item, i) => (
-                                            <li key={i} className="flex items-start gap-3 text-slate-300">
-                                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-violet-500 flex-shrink-0" />
-                                                <span className="leading-relaxed">{item}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
+              {/* Modal */}
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  scale: 0.9,
+                  y: 20,
+                }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  y: 0,
+                }}
+                exit={{
+                  opacity: 0,
+                  scale: 0.9,
+                  y: 20,
+                }}
+                className="relative bg-slate-900 border border-slate-700 rounded-2xl p-6 md:p-8 max-w-2xl w-full shadow-2xl max-h-[85vh] overflow-y-auto"
+              >
+                {/* Close */}
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="absolute top-4 right-4 p-2 bg-slate-800 rounded-full hover:bg-slate-700 transition-colors"
+                >
+                  <X className="w-5 h-5 text-slate-400" />
+                </button>
 
-                                <div className="space-y-4">
-                                    <h4 className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Technologies Used</h4>
-                                    <div className="flex flex-wrap gap-2">
-                                        {selectedProject.tags.map((tag, i) => (
-                                            <span key={i} className="px-3 py-1.5 bg-slate-800 text-slate-300 rounded-md border border-slate-700 text-sm">
-                                                {tag}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
+                {/* Title */}
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  {selectedProject.title}
+                </h3>
 
+                <p className="text-violet-400 font-medium mb-6">
+                  {selectedProject.role}
+                </p>
 
-                                {selectedProject.links && (
-                                    <div className="space-y-4 mt-8 pt-6 border-t border-slate-800">
-                                        <h4 className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Links</h4>
-                                        <div className="flex flex-wrap gap-3">
-                                            {selectedProject.links.map((link, i) => (
-                                                <a
-                                                    key={i}
-                                                    href={link.url}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="flex items-center gap-2 px-4 py-2 bg-violet-600/10 hover:bg-violet-600/20 text-violet-400 hover:text-violet-300 rounded-lg transition-colors border border-violet-500/20 hover:border-violet-500/40 text-sm font-medium"
-                                                >
-                                                    {link.label}
-                                                    <ExternalLink className="w-4 h-4" />
-                                                </a>
-                                            ))}
-                                        </div>
-                                    </div>
-                                )}
-                            </motion.div>
-                        </div>
-                    )}
-                </AnimatePresence>
+                {/* Details */}
+                <div className="space-y-4 mb-8">
+                  <h4 className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
+                    Responsabilidades y características principales
+                  </h4>
+
+                  <ul className="space-y-3">
+                    {selectedProject.fullDesc?.map((item, i) => (
+                      <li
+                        key={i}
+                        className="flex items-start gap-3 text-slate-300"
+                      >
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-violet-500 flex-shrink-0" />
+
+                        <span className="leading-relaxed">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Tech */}
+                <div className="space-y-4">
+                  <h4 className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
+                    Tecnologías utilizadas
+                  </h4>
+
+                  <div className="flex flex-wrap gap-2">
+                    {selectedProject.tags.map((tag, i) => (
+                      <span
+                        key={i}
+                        className="px-3 py-1.5 bg-slate-800 text-slate-300 rounded-md border border-slate-700 text-sm"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Links */}
+                {selectedProject.links && (
+                  <div className="space-y-4 mt-8 pt-6 border-t border-slate-800">
+                    <h4 className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
+                      Proyecto y código fuente
+                    </h4>
+
+                    <div className="flex flex-wrap gap-3">
+                      {selectedProject.links.map((link, i) => (
+                        <a
+                          key={i}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all text-sm font-medium border
+                            
+                            ${
+                              link.type === "github"
+                                ? "bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700"
+                                : "bg-violet-600/10 hover:bg-violet-600/20 text-violet-400 border-violet-500/20"
+                            }`}
+                        >
+                          {link.type === "github" ? (
+                            <Github className="w-4 h-4" />
+                          ) : (
+                            <Globe className="w-4 h-4" />
+                          )}
+
+                          {link.label}
+
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </motion.div>
             </div>
-        </section>
-    );
+          )}
+        </AnimatePresence>
+      </div>
+    </section>
+  );
 };
 
 export default Projects;
-
