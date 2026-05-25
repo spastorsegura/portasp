@@ -1,137 +1,106 @@
-# 🚀 Shashidhar Naik | Full Stack Software Engineer Portfolio
+# 🚀 Sergio Pastor Segura | Frontend Developer Portfolio
 
-## 🌐 [Visit Live Portfolio →](https://shashidhar-portfolio.netlify.app/)
+## 🌐 Portfolio en vivo
 
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Next.js](https://img.shields.io/badge/Framework-Next.js%2016-black?style=flat&logo=next.js)](https://nextjs.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Styling-Tailwind%20CSS%204-06B6D4?style=flat&logo=tailwindcss)](https://tailwindcss.com/)
+👉 https://spastorsegura.github.io (o tu dominio real si lo tienes)
 
-A premium, SEO-optimized portfolio website for **Shashidhar Naik**, a Senior Software Engineer specializing in building scalable enterprise web applications with the **MERN** (MongoDB, Express, React, Node.js) and **MEVN** (Vue.js instead of React) stacks. This portfolio showcases professional experience, open-source contributions, and expertise in modern web technologies including Next.js, TypeScript, and React.
-
----
-
-## 🎨 Preview
-
-![Shashidhar Naik Portfolio Hero Section](/public/portfolio_hero_section.png)
+[![Next.js](https://img.shields.io/badge/Framework-Next.js-black?logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/Frontend-React-blue?logo=react)](https://react.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Styling-TailwindCSS-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
 
 ---
 
-## 👨‍💻 Professional Summary
+## 👨‍💻 Sobre el proyecto
 
-As a **Software Engineer II** at Cymbeline Innovation Pvt. Ltd, I lead frontend development for high-impact projects like the **Warehouse Management System (WMS)** for clients like **Panasonic**. My focus is on creating high-performance, user-centric interfaces and architecting robust full-stack solutions.
+Portafolio profesional de **Sergio Pastor Segura**, Frontend Developer especializado en la creación de interfaces modernas, sistemas web institucionales y experiencias digitales interactivas.
 
-### Key Expertise:
-- **Frontend Architecture**: React 19, Next.js 16, TypeScript, Tailwind CSS 4.
-- **Backend Systems**: Node.js, Express, MongoDB, RESTful APIs.
-- **State Management**: Redux Toolkit, React Context.
-- **Performance**: Static site generation (SSG), image optimization, smooth Framer Motion animations.
+Actualmente enfocado en **Frontend Development**, con experiencia previa en diseño web, CMS (WordPress, Drupal) y desarrollo de aplicaciones web full stack.
 
 ---
 
-## ✨ Standout Features
+## 🎯 Enfoque profesional
 
-- **🤖 AI Portfolio Assistant**: A custom-built chatbot that answers professional inquiries about my background, skills, and experience.
-- **📦 Open Source Contributions**: Published NPM packages including `qrlayout-core`, `qrlayout-ui`, and `env-drift-check` with 5,000+ total downloads.
-- **⚡ Blazing Fast Performance**: Built using Next.js 16 App Router and optimized for high Core Web Vitals scores.
-- **🔍 Deep SEO Integration**: Implemented JSON-LD structured data, metadata for social sharing (OG/Twitter cards), sitemap, and semantic HTML for search engine discoverability.
-- **💎 Premium UI/UX**: Features glassmorphism, responsive timelines, interactive project galleries, and smooth Framer Motion animations.
-
----
-
-## 🛠️ Technology Stack
-
-| Category | technologies |
-| :--- | :--- |
-| **Frameworks** | Next.js 16 (App Router), React 19 |
-| **Styling** | Tailwind CSS 4, Framer Motion (Animations) |
-| **Languages** | TypeScript, JavaScript (ES6+) |
-| **Icons** | Lucide React |
-| **Form/Scroll** | React Hook Form, React Scroll |
+- Desarrollo Frontend con React, Next.js y Astro
+- Diseño e implementación de interfaces modernas (UI/UX)
+- Sistemas web institucionales y plataformas de contenido
+- Desarrollo freelance en WordPress y sitios personalizados
+- Experiencia en gestión de contenidos con Drupal
+- Optimización de performance, SEO y accesibilidad
 
 ---
 
-## 📦 Open Source Contributions
+## ✨ Características del portfolio
 
-I actively contribute to the developer community through open-source NPM packages:
-
-### Published Packages
-
-| Package | Description | Downloads | NPM Link |
-| :--- | :--- | :--- | :--- |
-| **qrlayout-core** | Core logic library for QR layout generation with TypeScript | 2,300+ | [View Package](https://www.npmjs.com/package/qrlayout-core) |
-| **qrlayout-ui** | Framework-agnostic UI components for QR layout designer | 1,400+ | [View Package](https://www.npmjs.com/package/qrlayout-ui) |
-| **env-drift-check** | CLI tool to detect drift between .env files | 1,300+ | [View Package](https://www.npmjs.com/package/env-drift-check) |
-
-**Total Downloads**: 5,000+ across all packages  
-
+- 🤖 Asistente interactivo tipo chatbot del portafolio
+- ⚡ UI moderna con animaciones suaves y transiciones
+- 📱 Diseño completamente responsive (mobile-first)
+- 🔍 Optimización SEO (sitemap, metadata, Open Graph)
+- 🎨 Diseño visual enfocado en experiencia de usuario
+- 🚀 Alto rendimiento con Next.js y optimización de assets
 
 ---
 
-## 📂 Project Architecture
+## 🛠️ Stack tecnológico
 
-```bash
-src/
-├── app/               # Next.js App Router (Layouts, Pages, Global Styles)
-├── components/        # High-performance UI Components
-│   ├── Hero.tsx       # Landing section with social links
-│   ├── About.tsx      # Professional summary
-│   ├── Experience.tsx # Work history timeline
-│   ├── Projects.tsx   # Featured projects gallery
-│   ├── OpenSource.tsx # NPM packages showcase
-│   ├── Education.tsx  # Academic background
-│   ├── Contact.tsx    # Contact form
-│   ├── Header.tsx     # Navigation bar
-│   ├── Footer.tsx     # Footer section
-│   └── PortfolioAssistant.tsx # AI chatbot
-└── public/            # Static Assets (Images, Favicons, Sitemap)
-```
+| Categoría    | Tecnologías                   |
+| ------------ | ----------------------------- |
+| Frontend     | React, Next.js, Astro         |
+| Styling      | Tailwind CSS, CSS3            |
+| Animaciones  | Framer Motion                 |
+| Lenguajes    | JavaScript (ES6+), TypeScript |
+| CMS          | WordPress, Drupal             |
+| Diseño       | Figma, Adobe XD               |
+| Herramientas | Git, GitHub, VS Code, Postman |
 
 ---
 
-## 🚀 Local Development
+## 📂 Proyectos destacados
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/shashi089/portfolio.git
-   cd portfolio
-   ```
+### 🧠 Portafolio Interactivo
 
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
+Sistema de portafolio moderno con enfoque en animaciones, UX y rendimiento.
 
-3. **Run the development server**:
-   ```bash
-   npm run dev
-   ```
+### 🏛️ Plataformas Institucionales
 
-4. **Build for production**:
-   ```bash
-   npm run build
-   ```
+Desarrollo y mantenimiento de sitios web culturales y corporativos con Drupal y frontend personalizado.
 
----
+### 🧩 Sitios WordPress Freelance
 
-## 🌍 Deployment (Netlify)
+Creación de sitios web a medida, landing pages y optimización SEO para clientes freelance.
 
-This project uses **Static Export** (`output: 'export'`) for maximum performance and SEO.
+### ⚙️ Aplicaciones Web MERN
 
-1. Run `npm run build`.
-2. Deploy the `out/` directory to **Netlify** (via GitHub integration or CLI).
+Desarrollo de aplicaciones web completas usando React, Node.js, Express y MongoDB.
+
+### 🗺️ Proyecto interactivo “Orgullosos por nuestra historia”
+
+Plataforma con mapa interactivo del Perú usando Canvas API y carga dinámica de imágenes.
+
+### 🎨 UI/UX & Diseño Digital
+
+Diseño de interfaces modernas enfocadas en usabilidad, accesibilidad y experiencia de usuario.
 
 ---
 
-## 🔗 Connect with Me
+## 💼 Experiencia general
 
-- **LinkedIn**: [Shashidhar Naik](https://www.linkedin.com/in/shashidhar-naik-aab5b512a/)
-- **GitHub**: [@shashi089](https://github.com/shashi089)
-- **NPM**: [@shashidharlbs](https://www.npmjs.com/~shashidharlbs)
-- **Portfolio**: [shashidhar-portfolio.netlify.app](https://shashidhar-portfolio.netlify.app/)
+- Frontend Developer & Webmaster en plataformas institucionales
+- Diseñador web en proyectos culturales y educativos
+- Desarrollo freelance en WordPress
+- Experiencia en soporte técnico y transición a desarrollo web
+- Más de 4 años en entorno digital y web
 
 ---
 
-## 📄 License
+## 🔗 Contacto
 
-This project is licensed under the [MIT License](LICENSE).
-# portasp
+- GitHub: https://github.com/spastorsegura
+- LinkedIn: https://www.linkedin.com/in/sergio-pastor-segura-b5211a19
+- Email: sergio.cybert@gmail.com
+- Tel: 511 976317906
+
+---
+
+## 📄 Licencia
+
+Este proyecto es de uso personal y portafolio profesional.
