@@ -57,12 +57,13 @@ const Hero = () => {
             </Link>
 
             <a
-              href="/Sergio_Pastor.pdf"
-              download
+              href="/CVSergioPastor.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-3 border border-[#79C7D9]/30 hover:border-[#79C7D9] hover:text-[#79C7D9] text-[#A9C7D1] rounded-lg font-medium transition-all flex items-center gap-2 group"
             >
               <Download className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
-              Descargar CV
+              Ver CV
             </a>
           </div>
 
